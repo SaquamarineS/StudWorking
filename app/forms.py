@@ -118,7 +118,7 @@ class ApplicationForm(FlaskForm):
                            validators=[DataRequired()])
     experience = IntegerField('Опыт работы в годах',
                               validators=[DataRequired()])
-    cv = FileField('Обновить резюме', validators=[FileAllowed(['jpg', 'png', 'bmp'])])
+    cv = FileField('Обновить резюме', validators=[FileAllowed(['jpg', 'png', 'bmp', 'pdf'])])
     cover_letter = TextAreaField('Сопроводительное письмо',
                                  validators=[DataRequired()])
     submit = SubmitField('Отправить')

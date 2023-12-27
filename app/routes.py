@@ -91,11 +91,18 @@ def save_picture(form_picture):
     return picture_fn
 
 
-@app.route("/completed_order")
-def completed_orders():
-    completed = CompletedOrders.query.all()
-    return render_template('completed_orders.html', completed_orders=completed)
-
+@app.route("/completed_orders")
+def completed_jobs():
+    form = JobForm()
+    if form.validate_on_submit():
+        job = Jobs(title=form.title.data,
+                   industry=form.industry.data,
+                   description=form.description.data,
+                   job_applier=current_user)
+        db.session.add(job)
+        db.session.commit()
+        return redirect(url_for('posted_jobs'))
+    return render_template('completed_orders.html', form=form, Random_Review=Random_Review)
 
 @app.route("/post_cvs/<jobid>", methods=['GET', 'POST'])
 @login_required
