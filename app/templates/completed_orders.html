@@ -1,23 +1,23 @@
 {% extends "layout.html" %}
 {% block content %}
 <section class="jumbotron text-center">
-    <br>
-    <div class="row">
-        {% for order in completed_orders %}
-        <div class="col-lg-4">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-primary">Заказ №{{ order.order_id }}</strong>
-                    <h3 class="mb-0">{{ order.product }}</h3>
-                    <div class="mb-1 text-muted">Дата завершения: {{ order.date_completed }}</div>
-                    <p class="card-text mb-auto">Покупатель: {{ order.customer_name }}</p>
-                </div>
-                <div class="col-auto d-none d-lg-block">
-                    <a href="#" class="btn btn-primary mb-2" role="button" aria-disabled="true">Завершить заказ на 20000 тг</a>
-                </div>
-            </div>
+<br>
+  <div class="row">
+    {% for job in jobs %}
+    <div class="col-lg-4">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Отрасль: {{job.industry}}</strong>
+          <h3 class="mb-0">{{job.title}}</h3>
+          <p class="card-text mb-auto">{{job.description}}</p>
+            <div class="mb-1 text-muted">Дата окончания 20.12.2023</div>
+            <div class="mb-1 text-muted">Сумма получена на 20.000 тг</div>
+
         </div>
-        {% endfor %}
+
+      </div>
     </div>
+    {% endfor %}
+  </div>
 </section>
 {% endblock %}
